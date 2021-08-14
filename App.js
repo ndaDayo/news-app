@@ -1,17 +1,27 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, SafeAreaView, FlatList} from 'react-native';
 import ListItem from './components/ListItem';
-import dummyArticles from './articles.json';
+import Constants from 'expo-constants';
+import axios from 'axios';
+
+const URL = `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${Constants.manifest.extra.newsApiKey}`;
 
 export default function App() {
     const [articles, setArticles] = useState([]);
     useEffect(() => {
-           const timer = setTimeout(() => {
-               setArticles(dummyArticles);
-           },2000);
-           return () => clearTimeout(timer);
+        fetchArticles();
     },[]);
     
+    const fetchArticles = async () => {
+        try {
+            const response = await axios.get(URL);
+            console.log(response);
+            setArticles(response.data.articles);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <FlatList

@@ -1,24 +1,29 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, SafeAreaView, FlatList} from 'react-native';
 import ListItem from './components/ListItem';
+import articles from './articles.json';
 
 export default function App() {
     return (
-        <View style={styles.container}>
-            <ListItem
-                title="ndadayo!!ndadayo!!"
-                author="nda sugawara"
-                imageUrl='https://reactnative.dev/img/tiny_logo.png'
+        <SafeAreaView style={styles.container}>
+            <FlatList
+                data={articles}
+                renderItem={({item}) => (
+                    <ListItem
+                        title={item.title}
+                        author={item.author}
+                        imageUrl={item.urlToImage}
+                    />
+                )}
+                keyExtractor={(item, index) => index.toString()}
             />
-        </View>
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        backgroundColor: '#fff'
     }
 });

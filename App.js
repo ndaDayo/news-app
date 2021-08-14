@@ -5,7 +5,11 @@ import ListItem from './components/ListItem';
 export default function App() {
     return (
         <View style={styles.container}>
-            <ListItem />
+            <ListItem
+                title="ndadayo!!ndadayo!!"
+                author="nda sugawara"
+                imageUrl='https://reactnative.dev/img/tiny_logo.png'
+            />
         </View>
     );
 }

@@ -10,7 +10,7 @@ export default function HomeScreen() {
     const [articles, setArticles] = useState([]);
     useEffect(() => {
         fetchArticles();
-    },[]);
+    }, []);
 
     const fetchArticles = async () => {
         try {
@@ -30,6 +30,7 @@ export default function HomeScreen() {
                         title={item.title}
                         author={item.author}
                         imageUrl={item.urlToImage}
+                        onPress={() => alert('tap')}
                     />
                 )}
                 keyExtractor={(item, index) => index.toString()}

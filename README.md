@@ -1,0 +1,5 @@
+# EXPO 
+
+```
+$ expo start
+```

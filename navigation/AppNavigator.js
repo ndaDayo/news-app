@@ -28,14 +28,8 @@ const screenOptions = ({route}) => ({
 const HomeStack = () => {
     return (
         <Stack.Navigator>
-            <Stack.Screen
-                name="Home"
-                component={HomeScreen}
-            />
-            <Stack.Screen
-                name="Article"
-                component={ArticleScreen}
-            />
+            <Stack.Screen name="Home" component={HomeScreen}/>
+            <Stack.Screen name="Article" component={ArticleScreen}/>
         </Stack.Navigator>
     );
 }
@@ -43,10 +37,8 @@ const HomeStack = () => {
 const ClipStack = () => {
     return (
         <Stack.Navigator>
-            <Stack.Screen
-                name="Clip"
-                component={ClipScreen}
-            />
+            <Stack.Screen name="Clip" component={ClipScreen}/>
+            <Stack.Screen name="Article" component={ArticleScreen}/>
         </Stack.Navigator>
     );
 }
